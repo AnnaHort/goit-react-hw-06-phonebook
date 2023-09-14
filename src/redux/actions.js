@@ -1,7 +1,7 @@
 export const addContact = contactData => {
     return {
         type: 'contacts/addContact',
-        payload: 'contactData',
+        payload: contactData,
     }
 }
 
