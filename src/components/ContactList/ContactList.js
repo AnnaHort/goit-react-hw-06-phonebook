@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, findContact } from 'redux/actions';
+import { ContactButton, ListContact, ListEl, StyledSearchInput } from './ContactList.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contacts);
@@ -26,25 +27,25 @@ export const ContactList = () => {
   return (
     <>
       <h2>Contacts</h2>
-      <input
+      <StyledSearchInput
         type="text"
         name="filter"
         placeholder="Search by name"
         onChange={handleChange}
       />
-      <ul>
+      <ListContact>
         {contacts
           .filter(contact =>
             contact.name.toLowerCase().includes(filter.toLowerCase())
           )
           .map(contact => (
-            <li key={contact.id}>
-              <p>{contact.name}</p>
-              <p>Number: {contact.phoneNumber}</p>
-              <button onClick={() => handleDelete(contact.id)}>Delete</button>
-            </li>
+            <ListEl key={contact.id}>
+              <p>{contact.name}:</p>
+              <p> {contact.phoneNumber}</p>
+              <ContactButton onClick={() => handleDelete(contact.id)}>Delete</ContactButton>
+            </ListEl>
           ))}
-      </ul>
+      </ListContact>
     </>
   );
 };

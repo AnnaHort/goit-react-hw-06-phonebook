@@ -31,9 +31,11 @@ export const QuizForm = () => {
         dispatch(addContact(contactData));
         form.reset();
       } else {
+        form.reset();
         alert('This contact already exists in your phonebook.');
       }
     } else {
+      
       alert('Please enter both Name and Number');
     }
   };
