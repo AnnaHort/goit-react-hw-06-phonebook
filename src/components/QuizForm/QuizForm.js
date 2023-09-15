@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/actions';
+import { AddContactBtn, Container, InputEl, StyledForm } from './QuizForm.styled';
 
 export const QuizForm = () => {
   const contacts = useSelector(state => state.contacts.contacts);
@@ -40,29 +41,29 @@ export const QuizForm = () => {
   return (
     <>
       <h2>Phonebook</h2>
-      <form onSubmit={handleFormSubmit}>
+      <StyledForm onSubmit={handleFormSubmit}>
         <ul>
-          <li>
+          <Container>
             <p>Name:</p>
-            <input
+            <InputEl
               name="name"
               placeholder="add new name"
               pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             />
-          </li>
-          <li>
+          </Container>
+          <Container>
             <p>Number:</p>
-            <input
+            <InputEl
               name="contacts"
               placeholder="add new number"
               pattern="\+?[0-9\s\-\(\)]+"
             />
-          </li>
+          </Container>
           <li>
-            <button>Add contact</button>
+            <AddContactBtn>Add contact</AddContactBtn>
           </li>
         </ul>
-      </form>
+      </StyledForm>
     </>
   );
 };
