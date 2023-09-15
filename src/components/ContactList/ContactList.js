@@ -11,14 +11,18 @@ export const ContactList = () => {
   };
 
   return (
-    <ul>
-      {contacts.map(contact => (
-        <li key={contact.id}>
-          <p>{contact.name}</p>
-          <p>Number:{contact.phoneNumber}</p>
-          <button onClick={() => handleDelete(contact.id)}>Delete</button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2>Contacts</h2>
+      <input type='text' name='filter' placeholder='Search by name'/>
+      <ul>
+        {contacts.map(contact => (
+          <li key={contact.id}>
+            <p>{contact.name}</p>
+            <p>Number:{contact.phoneNumber}</p>
+            <button onClick={() => handleDelete(contact.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };

@@ -30,28 +30,31 @@ export const QuizForm = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <ul>
-        <li>
-          <p>Name:</p>
-          <input
-            name="name"
-            placeholder="add new name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          />
-        </li>
-        <li>
-          <p>Number:</p>
-          <input
-            name="contacts"
-            placeholder="add new number"
-            pattern="\+?[0-9\s\-\(\)]+"
-          />
-        </li>
-        <li>
-          <button>Add contact</button>
-        </li>
-      </ul>
-    </form>
+    <>
+      <h2>Phonebook</h2>
+      <form onSubmit={handleFormSubmit}>
+        <ul>
+          <li>
+            <p>Name:</p>
+            <input
+              name="name"
+              placeholder="add new name"
+              pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            />
+          </li>
+          <li>
+            <p>Number:</p>
+            <input
+              name="contacts"
+              placeholder="add new number"
+              pattern="\+?[0-9\s\-\(\)]+"
+            />
+          </li>
+          <li>
+            <button>Add contact</button>
+          </li>
+        </ul>
+      </form>
+    </>
   );
 };

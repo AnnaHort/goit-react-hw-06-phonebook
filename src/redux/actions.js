@@ -11,3 +11,10 @@ export const deleteContact = contactId => {
     payload: contactId,
   };
 };
+
+export const findContact = contactName => {
+  return {
+    type: 'contacts/findContact',
+    payload: contactName,
+  }
+}
