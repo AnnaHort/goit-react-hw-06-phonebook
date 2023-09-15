@@ -20,9 +20,17 @@ export const QuizForm = () => {
     };
 
     if (contactData.name !== '' && contactData.phoneNumber !== '') {
-      if (!contacts.includes(contactData)) {
+      const contactExists = contacts.some(
+        contact =>
+          contact.name === contactData.name &&
+          contact.phoneNumber === contactData.phoneNumber
+      );
+
+      if (!contactExists) {
         dispatch(addContact(contactData));
         form.reset();
+      } else {
+        alert('This contact already exists in your phonebook.');
       }
     } else {
       alert('Please enter both Name and Number');

@@ -11,9 +11,11 @@ export const ContactList = () => {
     dispatch(deleteContact(contactId));
   };
 
+
   const handleChange = e => {
     const inputValue = e.target.value;
     dispatch(findContact(inputValue));
+
     if (filter && filter !== '') {
       contacts.filter(contact =>
         contact.name.toLowerCase().includes(inputValue.toLowerCase())
